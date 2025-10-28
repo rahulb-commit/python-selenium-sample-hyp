@@ -57,7 +57,7 @@ class FirstSampleTest(unittest.TestCase):
         # Url
         print("Loading URL")
         driver.get(
-            "https://stage-lambda-devops-use-only.lambdatestinternal.com/To-do-app/index.html"
+            "https://lambdatest.github.io/sample-todo-app/"
         )
 
         # Let's click on a element
@@ -76,14 +76,13 @@ class FirstSampleTest(unittest.TestCase):
         print("Added LambdaTest checkbox")
 
         # print the heading
-        search = driver.find_element(By.CSS_SELECTOR, ".container h2")
+        search = driver.find_element(By.XPATH, "//h1[contains(@class,'font-bold')]")
         assert search.is_displayed(), "heading is not displayed"
         print(search.text)
         search.click()
         driver.implicitly_wait(3)
 
-        # Let's download the invoice
-        heading = driver.find_element(By.CSS_SELECTOR, ".container h2")
+        heading = driver.find_element(By.XPATH, "//h1[contains(@class,'font-bold')]")
         if heading.is_displayed():
             heading.click()
             driver.execute_script("lambda-status=passed")
