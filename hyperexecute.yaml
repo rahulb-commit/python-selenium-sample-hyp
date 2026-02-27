@@ -1,24 +1,28 @@
 version: 0.1
-# Requirement 2: Linux
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+
+# Scenario 2: Run your test on Linux
 runson: linux
 
-# Requirement 1: Dependencies
-pre:
-  - pip3 install --user -r requirements.txt
-
-# This block is what triggers the actual test execution
+# Matrix mode runs the command directly without needing discovery
 matrix:
   os: [linux]
 
-# Requirement 3: Retry logic (3 times)
+# Scenario 3: Retry 3 times on failure
 retryOnFailure: true
 maxRetries: 3
 
-# The actual command to run your file
+# Scenario 1: Install dependencies (Python equivalent of mvn dependency)
+pre:
+  - pip3 install --user -r requirements.txt
+
+# The direct command to run your Python script
 testRunnerCommand: python3 lambdatest.py
 
-# Requirement 4: Cleanup
+# Scenario 4: Remove demo.txt once executed
 post:
   - rm -f demo.txt
 
-jobLabel: ["TestMu-Final-Solution"]
+jobLabel: ["selenium", "python", "hyperexecute-assignment"]
