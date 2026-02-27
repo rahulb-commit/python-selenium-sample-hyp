@@ -1,25 +1,23 @@
 version: 0.1
-# Requirement 2: Run on Linux
+# Requirement 2: Linux
 runson: linux
 
 # Requirement 1: Install dependencies
-# Using 'pip3' and adding 'user' flag for better compatibility on Linux runners
 pre:
   - pip3 install --user -r requirements.txt
 
-# Requirement 3: Retry 3 times on failure
+# Requirement 3: Retry logic
 retryOnFailure: true
 maxRetries: 3
 
-# We use 'matrix' mode here as it is the most stable for single-file execution
-matrix:
-  os: [linux]
+# Execution logic: This forces the runner to execute your script
+# and satisfies the assignment's core goal.
+stages:
+  - name: run_tests
+    testRunnerCommand: python3 lambdatest.py
 
-# The actual command to run your script
-testRunnerCommand: python3 lambdatest.py
-
-# Requirement 4: Remove demo.txt after execution
+# Requirement 4: Cleanup
 post:
   - rm -f demo.txt
 
-jobLabel: ["TestMu-Certification-Final"]
+jobLabel: ["TestMu-Assignment-Final-Run"]
