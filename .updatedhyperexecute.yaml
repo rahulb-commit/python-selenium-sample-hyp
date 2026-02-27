@@ -1,0 +1,157 @@
+version: "0.1"
+user: rahulblambdatest
+key: '********'
+matrix: {os: [linux]}
+testSuites: []
+pre: [pip3 install --user -r requirements.txt]
+preDirectives:
+    commands: [pip3 install --user -r requirements.txt]
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+post: [rm -f demo.txt]
+postDirectives:
+    commands: [rm -f demo.txt]
+    shell: ""
+    workingDirectory: ""
+jobLabel:
+    - TestMu-Certification-Final
+runson: linux
+testRunnerCommand: python3 lambdatest.py
+tunnelOpts:
+    testsPerTunnel: 10
+retryOnFailure: true
+maxRetries: 3
+jobID: 3ff319e8-92c4-48a4-875c-8d90fa6be0ae
+codeDirectory: python-selenium-sample-hyp
+framework:
+    name: ""
+    flags: []
+    discoveryFlags: []
+    discoveryMode: ""
+    discoveryType: ""
+    runnerFlags: []
+    workingDirectory: ""
+    isTestNGXMLSuite: false
+    defaultReports: false
+    args:
+        appPath: ""
+        testSuitePath: ""
+        xcTestPlanPath: ""
+        shards:
+            mappings: []
+        filters:
+            attributes: []
+        devices: []
+        deviceSelectionStrategy: ""
+        appId: ""
+        testSuiteAppId: ""
+        xcTestPlanId: ""
+        skipXMLOnRun: false
+        skipInstall: false
+        disableReleaseDevice: false
+        platformName: ""
+        isRealMobile: null
+        avoidAppLaunch: false
+        queueTimeout: 0
+        uninstallPreviousBuild: false
+        language: ""
+        locale: ""
+        preservedDevice: false
+        fixedIP: ""
+        minorOsVersion: false
+        playwrightRD: false
+        mobileDC: null
+        skipUninstallPreviousBuild: false
+        isVirtualDevice: false
+        mitmProxy: false
+        networkHar: false
+        artifacts: false
+        otherApps: []
+        customData: {}
+        smartUI: null
+        darkMode: false
+        testRemarks: false
+        autoGrantPermissions: false
+        networkLogsOptions:
+            captureContent: false
+            excludeHosts: []
+            includeHosts: []
+        enableResultBundle: false
+        enableBluetooth: false
+    additional_args: null
+    licenseKey: ""
+    userdefinediscovery: false
+    toscaArgs: null
+    version: ""
+    downloadURL: ""
+    baseCommand: ""
+cypress: false
+betaFeature:
+    setPartiallyCompletedAsCompleted: false
+triggerSource: CLI
+combineTasksInMatrixMode: false
+captureScreenRecordingForScenarios: false
+maxRetriesPreSteps: 0
+triggerMode: false
+sourcePayload:
+    verifySSL: true
+collectLocalGitData: true
+dynamicAllocation: false
+appium: null
+platformConfig: null
+differentialUpload:
+    enabled: false
+    ttlHours: null
+    forcedDisabled: false
+project:
+    id: 01JZ03GE64ZZA2HBVGCPBNJ4FF
+    name: LambdaTest Default Project
+    type: custom
+meta: {}
+alwaysRunPostSteps: false
+errorCategorizedOnFailureOnly: false
+testDiscoveryResultV3: []
+storageType: ""
+localHTTPProxy: ""
+regionConfig:
+    vm: []
+    storage:
+        region: ""
+        enabled: false
+        name: ""
+        platform: azure
+waitForArtefactsUpload: false
+unzipPayload: false
+projectpath: ""
+accessibilityJob: false
+globalPre:
+    mode: ""
+    commands: []
+    maxRetries: 0
+    shell: ""
+    workingDirectory: ""
+    completed: false
+    runson: ""
+    cache: false
+    yamlPath: null
+    type: ""
+    location: ""
+globalPost:
+    mode: ""
+    commands: []
+    shell: ""
+    workingDirectory: ""
+    completed: false
+    runson: ""
+    downloadArtifacts: false
+    email:
+        to: []
+        metaInfo: []
+        linkValidity: 0
+        templatePath: ""
+    disableEmail: false
+slackChannel: ""
+whiteLabelProductTag: ""
+sprofilePath: ""
+ltOptions: {}

@@ -1,0 +1,57 @@
+{
+    "id": "3ff319e8-92c4-48a4-875c-8d90fa6be0ae",
+    "remark": "Job failed at prerun step. Please check your Yaml configuration.",
+    "created_at": "2026-02-27T11:37:51Z",
+    "update_at": "2026-02-27T11:38:04Z",
+    "global_timeout": 90,
+    "tunnel_name": "",
+    "start_time": "2026-02-27T11:38:01Z",
+    "end_time": "2026-02-27T11:38:04Z",
+    "summary": {
+        "total_time": 3000000000,
+        "execution_time": 3000000000,
+        "total_tasks": 1,
+        "build_time_consumed": 3000000000,
+        "jobTestExecutionTime": "0s",
+        "failed_tasks": 1,
+        "total_stage_info": {
+            "prerun": {
+                "StageFailedPercent": 100,
+                "StagePassPercent": 0,
+                "TotalStage": 1
+            }
+        },
+        "status": "failed",
+        "job_link": "https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=3ff319e8-92c4-48a4-875c-8d90fa6be0ae"
+    },
+    "tasks": [
+        {
+            "id": "HYPL-1298164-1772192281037139433HAI",
+            "os": "linux",
+            "status": "failed",
+            "remark": "Job failed at prerun step. Please check your Yaml configuration.",
+            "debug": false,
+            "created_at": "2026-02-27T11:38:01Z",
+            "update_at": "2026-02-27T11:38:04Z",
+            "start_time": "2026-02-27T11:38:01Z",
+            "end_time": "2026-02-27T11:38:04Z",
+            "group_number": 1,
+            "stages": [
+                {
+                    "id": "a5e71ff0-81a1-4bf0-afe5-cf60bdaf22cc",
+                    "type": "prerun",
+                    "status": "failed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2026-02-27T11:38:02Z",
+                    "started_at": "2026-02-27T11:38:02Z",
+                    "updated_at": "2026-02-27T11:38:04Z",
+                    "order": 1,
+                    "task_number": 1
+                }
+            ]
+        }
+    ],
+    "test_ids": null
+}
