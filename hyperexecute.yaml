@@ -6,23 +6,29 @@ testSuiteStep: 150
 # Scenario 2: Run your test on Linux
 runson: linux
 
-# Matrix mode runs the command directly without needing discovery
-matrix:
-  os: [linux]
+# Use autosplit when using testDiscovery
+autosplit: true
+concurrency: 1
 
 # Scenario 3: Retry 3 times on failure
 retryOnFailure: true
 maxRetries: 3
 
-# Scenario 1: Install dependencies (Python equivalent of mvn dependency)
+# Scenario 1: Install dependencies
 pre:
   - pip3 install --user -r requirements.txt
 
-# The direct command to run your Python script
-testRunnerCommand: python3 lambdatest.py
+# This command now uses the variable passed from Discovery
+testRunnerCommand: python3 $test
 
 # Scenario 4: Remove demo.txt once executed
 post:
   - rm -f demo.txt
+
+# Discovery: This tells the runner "Your test is lambdatest.py"
+testDiscovery:
+  type: raw
+  mode: static
+  command: echo lambdatest.py
 
 jobLabel: ["selenium", "python", "hyperexecute-assignment"]
