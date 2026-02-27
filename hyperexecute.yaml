@@ -1,22 +1,24 @@
 version: 0.1
-# Requirement 2: Run on Linux
+# Requirement 2: Linux
 runson: linux
 
-# Requirement 1: Install dependencies
+# Requirement 1: Dependencies
 pre:
   - pip3 install --user -r requirements.txt
 
-# Requirement 3: Retry 3 times on failure
+# This block is what triggers the actual test execution
+matrix:
+  os: [linux]
+
+# Requirement 3: Retry logic (3 times)
 retryOnFailure: true
 maxRetries: 3
 
-# This is the part that was missing to make the test actually run
-stages:
-  - name: run_python_test
-    testRunnerCommand: python3 lambdatest.py
+# The actual command to run your file
+testRunnerCommand: python3 lambdatest.py
 
-# Requirement 4: Remove demo.txt after execution
+# Requirement 4: Cleanup
 post:
   - rm -f demo.txt
 
-jobLabel: ["TestMu-Certification-Final-Run"]
+jobLabel: ["TestMu-Final-Solution"]

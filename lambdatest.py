@@ -12,7 +12,7 @@ class FirstSampleTest(unittest.TestCase):
 
         options = ChromeOptions()
         options.browser_version = "latest"
-        options.platform_name = "Linux"  # Must be Linux for the HyperExecute runner 
+        options.platform_name = "Linux" # Must be Linux for the HyperExecute runner 
         
         lt_options = {
             "username": username,
