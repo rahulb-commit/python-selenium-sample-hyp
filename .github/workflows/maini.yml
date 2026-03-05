@@ -1,41 +1,32 @@
-# yaml/autosplit_linux.yaml
-version: "0.1"
-runson: linux
+name: HyperExecute
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        required: true
+        description: LT Username
+      accessKey:
+        description: LT Access Key
+        required: true
+        
+jobs:
+  HyperExecute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
 
-# Environment variables
-env:
-  PYTHON_VERSION: "3.9"
-  # Any other env vars your tests need (e.g., LT credentials, browser, etc.)
-
-# Dependency installation
-pre:
-  - pip install -r requirements.txt   # Install Python dependencies
-
-# Test discovery: find all test files matching the pattern
-testDiscovery:
-  type: automatic
-  mode: dynamic
-  command: find tests -name "test_*.py"   # Adjust path to your test folder
-  type: regex
-  flags: []
-
-# Test suite configuration
-testSuite:
-  - name: "Python Selenium Tests"
-    parallel: true
-    execution: autosplit   # Let HyperExecute split tests across runners
-    classes:
-      - ${location}        # Each discovered test file
-
-# Autosplit configuration
-autosplit:
-  concurrency: 4   # Number of parallel sessions
-
-# Post-test commands (e.g., generating reports)
-post:
-  - echo "Tests completed"
-
-# Reporting (optional, but recommended)
-report: true
-reportTitles:
-  - "Python Selenium Test Report"
+      - name: Download CLI and Setting Environment Variables
+        shell: bash
+        run: |
+          curl https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute -o hyperexecute
+          chmod +x hyperexecute
+      
+      - name: Executing the Job
+        shell: bash
+        run: |
+          ./hyperexecute --user rahulblambdatest --key LT_WpyWKRp2rPDxKArORDD6iUrSf0hm519hwgVWcTFpI3FSex --download-artifacts --config hyperexecute.yaml
+          echo "Test completion"
