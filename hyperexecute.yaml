@@ -28,7 +28,7 @@ post:
 # Discovery: This tells the runner "Your test is lambdatest.py"
 testDiscovery:
   type: raw
-  mode: static
+  mode: dynamic
   command: echo lambdatest.py
 
 jobLabel: ["selenium", "python", "hyperexecute-assignment"]
